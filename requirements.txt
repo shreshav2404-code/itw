@@ -1,0 +1,17 @@
+torch
+transformers
+sentence-transformers
+huggingface_hub
+scikit-learn
+numpy
+scipy
+matplotlib
+pypdf
+gradio
+streamlit
+datasets
+accelerate
+peft
+trl
+ipykernel
+ipywidgets
