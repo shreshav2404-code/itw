@@ -2,6 +2,18 @@
 
 This repository contains Jupyter notebooks for experimenting with text embeddings, semantic search, vector databases, and retrieval-augmented generation (RAG) using Python.
 
+## What We Experimented With
+
+The notebooks build up a small question-answering system step by step:
+
+1. **Text and document preparation** - Created sample documents, counted document characters, and split text into manageable chunks. The chunking experiment uses 50-character chunks with a 10-character overlap so related text is preserved across chunk boundaries.
+2. **Text embeddings** - Used the `all-MiniLM-L6-v2` Sentence Transformers model to convert documents and user questions into numerical vectors.
+3. **Similarity search** - Compared embeddings with cosine similarity to find documents that are semantically related to a question, even when they do not contain exactly the same words.
+4. **ChromaDB vector storage** - Stored documents, embeddings, IDs, and source metadata in persistent ChromaDB collections. The `chroma/` and `chromadb/` directories contain the local experiment databases.
+5. **RAG retrieval** - Retrieved the most relevant documents from ChromaDB and inserted them into a prompt as context before generating an answer.
+6. **RAG chatbots** - Built interactive chatbot loops that accept questions, retrieve supporting context, generate an answer, and display the source documents and similarity distances. Users can type `exit` to stop the chatbot.
+7. **Local LLM experimentation** - Loaded transformer language models locally, including Google `flan-t5-small`, to generate answers without sending prompts to an external API.
+
 ## Contents
 
 - `itw.ipynb` through `itw6.ipynb`: Earlier experiments and demonstrations.
@@ -22,7 +34,7 @@ This repository contains Jupyter notebooks for experimenting with text embedding
 Install the main dependencies in the active notebook environment:
 
 ```bash
-python -m pip install chromadb sentence-transformers transformers torch
+python -m pip install chromadb langchain langchain-text-splitters sentence-transformers transformers torch
 ```
 
 ## Running `itw10.ipynb`
